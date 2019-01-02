@@ -32,9 +32,17 @@ class Solution:
         end = 1
         while end < len(s):
             index = str.find(s[start:end], s[end:end + 1])
-            if index > 0:
+            if index > -1:
+                print(start)
+                print(index)
                 if len(longest_substring)<len(s[start:end]):
+                    longest_substring = s[start:end]
+                    print(longest_substring)
+                start = index + 1 + start
 
-            else:
-                end += 1
-        return s
+            end += 1
+        print("start"+str(start))
+        if len(longest_substring)< len(s[start:]):
+            longest_substring = s[start:]
+        print(longest_substring)
+        return longest_substring

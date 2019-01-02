@@ -7,14 +7,19 @@ class TestSolution(unittest.TestCase):
 
     def test_lengthOfLongestSubstring_nil(self):
         longest_substring = self.solution.lengthOfLongestSubstring("")
-        self.assertEqual(longest_substring, "")
+        self.assertEqual( "", longest_substring)
     ## const -> const+
-    def test_lengthOfLongestSubstring_abc(self):
-        longest_substring = self.solution.lengthOfLongestSubstring("abc")
-        self.assertEqual(longest_substring, "abc")
+    def test_has_no_repeating_character(self):
+        longest_substring = self.solution.lengthOfLongestSubstring("abcdef")
+        self.assertEqual("abcdef", longest_substring )
 
-    def test_lengthOfLongestSubstring_abcbe(self):
-        longest_substring = self.solution.lengthOfLongestSubstring("abc")
-        self.assertEqual(longest_substring, "cbe")
+    def test_normal_string(self):
+        longest_substring = self.solution.lengthOfLongestSubstring("abcdefedf")
+        self.assertEqual("abcdef", longest_substring )
+
+
+    def test_all_is_repeating_character(self):
+        longest_substring = self.solution.lengthOfLongestSubstring("aaaaaa")
+        self.assertEqual("a", longest_substring)
 
 
