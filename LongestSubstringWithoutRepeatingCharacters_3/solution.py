@@ -27,22 +27,20 @@ class Solution:
         :type s: str
         :rtype: int
         """
+        return len(self.longestSubstring(s))
+
+    def longestSubstring(self, s):
         longest_substring = ""
         start = 0
         end = 1
         while end < len(s):
             index = str.find(s[start:end], s[end:end + 1])
             if index > -1:
-                print(start)
-                print(index)
                 if len(longest_substring)<len(s[start:end]):
                     longest_substring = s[start:end]
-                    print(longest_substring)
                 start = index + 1 + start
 
             end += 1
-        print("start"+str(start))
         if len(longest_substring)< len(s[start:]):
             longest_substring = s[start:]
-        print(longest_substring)
         return longest_substring

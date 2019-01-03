@@ -9,6 +9,14 @@
 
 这些步骤之间可能会穿插，以便让编译通过，但这个次序反映了我们的思考顺序。
 
+#### LongestSubstringWithoutRepeatingCharacters_3
+
+##### 自己的做法：遍历找出所有不重复子串，找出最长
+1. start 和 end 分别在 不重复子串的头和尾。
+2. 当end重复时得到当前不重复子串。
+
+##### 可优化的点。
+将查找优化为 使用hashMap
 ####longest_palindromic_substring_5
 #####自己的做法：穷举
 1. 穷举出所有的回文，取最长。
