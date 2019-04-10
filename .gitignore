@@ -72,7 +72,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+java/src/lib/
 lib64/
 parts/
 sdist/

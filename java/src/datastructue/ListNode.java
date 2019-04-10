@@ -1,4 +1,4 @@
-package reservedlinkedlist;
+package datastructue;
 
 /**
  * Definition for singly-linked list.
@@ -6,13 +6,18 @@ package reservedlinkedlist;
 
 public class ListNode {
     private int val;
-    ListNode next;
+    public ListNode next;
 
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
 
-    void appendNodes(int[] vals) {
+    @Override
+    public String toString() {
+        return String.valueOf(this.val);
+    }
+
+    public void appendNodes(int[] vals) {
         ListNode cur = this;
         for (int val : vals) {
             cur.next = new ListNode(val);
@@ -20,8 +25,7 @@ public class ListNode {
         }
     }
 
-    @Override
-    public String toString() {
+    public String LinkedListString() {
         StringBuilder result = new StringBuilder();
         ListNode p = this;
         while (p != null) {
@@ -29,18 +33,5 @@ public class ListNode {
             p = p.next;
         }
         return result.toString();
-    }
-}
-
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        ListNode newHead = null;
-        while (head != null){
-            ListNode next = head.next;
-            head.next = newHead;
-            newHead = head;
-            head = next;
-        }
-        return newHead;
     }
 }
