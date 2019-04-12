@@ -14,7 +14,7 @@ class SolutionTest {
     private Solution solution = new Solution();
 
     @BeforeEach
-    void init(){
+    void setUp(){
         node = new ListNode(1);
         node.appendNodes(new int[]{2, 3, 4, 5,});
     }
