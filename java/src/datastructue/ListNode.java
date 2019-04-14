@@ -1,5 +1,7 @@
 package datastructue;
 
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  */
@@ -33,5 +35,13 @@ public class ListNode {
             p = p.next;
         }
         return result.toString();
+    }
+
+    public ListNode getLastNode() {
+        ListNode cur = this;
+        while (cur.next != null) {
+            cur = cur.next;
+        }
+        return cur;
     }
 }

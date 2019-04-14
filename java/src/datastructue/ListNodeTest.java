@@ -3,6 +3,7 @@ package datastructue;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ListNodeTest {
     @Test
@@ -23,6 +24,17 @@ public class ListNodeTest {
     void should_return_val_when_to_string(){
         ListNode l = new ListNode(1);
         assertEquals("1", l.toString());
+    }
+
+    @Test
+    void shouldReturnLastNodeWhenGetLastNode(){
+        ListNode l = new ListNode(1);
+        assertEquals(l, l.getLastNode());
+
+        ListNode node2 = new ListNode(2);
+        l.next = node2;
+        assertEquals(node2, l.getLastNode());
+
     }
 
 }

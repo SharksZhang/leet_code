@@ -13,16 +13,9 @@ public class SolutionTest {
     @Test
     void shouldBeTrueWhenCycleExist(){
         ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(4);
-        ListNode node4 = new ListNode(6);
-        ListNode node5 = new ListNode(7);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
-        node5.next = node2;
+        node1.appendNodes(new int[]{2, 4, 6, 7});
 
+        node1.getLastNode().next = node1;
         assertTrue(solution.hasCycle(node1));
     }
 
