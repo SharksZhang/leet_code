@@ -30,48 +30,74 @@ class Node {
 */
 class Solution {
     public Node copyRandomList(Node head) {
-        Node cur = head;
-        HashMap<Node, Integer> sourceIndexNodeRela = new HashMap<>(10);
-        HashMap<Integer, Integer> sourceIndexRandom = new HashMap<>(10);
 
+        HashMap<Node, Integer> sourceIndexNodeRela = getNodeIndexMap(head);
+
+        HashMap<Integer, Integer> sourceIndexRandom = getIndexRandomMap(head, sourceIndexNodeRela);
+
+        Node newHead = copyListWithoutRandom(head);
+
+        HashMap<Integer, Node>  targetIndexNode = getIndexNodeMap(newHead);
+
+        return fillRandom(newHead, targetIndexNode, sourceIndexRandom);
+    }
+
+    private HashMap<Node,Integer> getNodeIndexMap(Node cur ){
+        HashMap<Node, Integer> sourceIndexNodeRela = new HashMap<>(10);
         int index = 0;
         while(cur != null){
             sourceIndexNodeRela.put(cur, index);
             cur = cur.next;
             index ++;
         }
+        return sourceIndexNodeRela;
+    }
 
-        cur = head;
-        index = 0;
+    private HashMap<Integer, Integer> getIndexRandomMap(Node cur, HashMap<Node, Integer> sourceIndexNodeRela){
+        HashMap<Integer, Integer> sourceIndexRandom = new HashMap<>(10);
+        int index = 0;
         while (cur != null){
             sourceIndexRandom.put(index, sourceIndexNodeRela.get(cur.random));
             cur = cur.next;
             index ++;
         }
+        return sourceIndexRandom;
+    }
 
+    private Node  copyListWithoutRandom(Node cur){
         Node newHead = new Node();
         Node newCur = newHead;
-        HashMap<Integer, Node>  targetIndexNode = new HashMap<>(10);
-        cur = head;
-        index = 0;
         while (cur != null){
             newCur.next = new Node(cur.val, null, null);
             newCur = newCur.next;
-            targetIndexNode.put(index, newCur);
+            cur = cur.next;
+        }
+        return newHead.next;
+    }
+
+    private HashMap<Integer, Node> getIndexNodeMap(Node cur){
+        HashMap<Integer, Node>  targetIndexNode = new HashMap<>(10);
+        int index = 0;
+        while (cur != null){
+            targetIndexNode.put(index, cur);
             index ++;
             cur = cur.next;
         }
+        return targetIndexNode;
+    }
 
-        index = 0;
-        newCur = newHead.next;
+    private Node fillRandom(Node head, HashMap<Integer, Node>  targetIndexNode, HashMap<Integer, Integer> sourceIndexRandom ){
+        Node newCur = head;
+        int index = 0;
         while (newCur != null){
             newCur.random = targetIndexNode.get(sourceIndexRandom.get(index));
             newCur = newCur.next;
             index ++;
         }
-        return newHead.next;
+        return head;
     }
 }
+
 
 class Node {
     public int val;
