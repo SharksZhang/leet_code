@@ -1,4 +1,6 @@
 # leet_code
-leet_code answer with golang and python
+#### 86.Partition List
+#### 138. Copy List with Random Pointer
+
 
 
