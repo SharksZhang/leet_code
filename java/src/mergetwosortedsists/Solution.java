@@ -18,7 +18,7 @@ class Solution {
         while (l1 != null && l2 != null){
             if (l1.val < l2.val){
                 mergedCur.next = l1;
-                mergedCur = mergedCur.next;
+              mergedCur = mergedCur.next;
                 l1 = l1.next;
             }else {
                 mergedCur.next = l2;
