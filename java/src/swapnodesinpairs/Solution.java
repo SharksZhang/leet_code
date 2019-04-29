@@ -34,8 +34,8 @@ class Solution {
             second.next= first;
             cur = first;
         }
-        cur.next = null;
 
+        cur.next = null;
         if (head != null){
             cur.next = head;
         }
