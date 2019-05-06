@@ -31,24 +31,62 @@ import java.util.Stack;
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode(0);
-        ListNode resCur = result;
-
         Stack<ListNode> stack1 = createStack(l1);
         Stack<ListNode> stack2 = createStack(l2);
-        while (!stack1.empty() && ! stack2.empty()){
-
-        }
-
-        int carry = (l1.val +l2.val) / 10;
-        int curVal = (l1.val + l2.val)%10;
+        Stack<ListNode> resultStack = new Stack<>();
+        int carry = calculate(stack1, stack2, resultStack);
+        carry = calculateRemainingNode(resultStack, carry, stack1.isEmpty() ? stack2 : stack1);
 
         if (carry != 0) {
-            resCur.next  = new ListNode(carry);
-            resCur = resCur.next;
+            resultStack.push(new ListNode(carry));
         }
-        resCur.next = new ListNode(curVal);
-        return result.next;
+
+        return createListFromStack(resultStack);
+    }
+
+    private int calculate(Stack<ListNode> stack1, Stack<ListNode> stack2, Stack<ListNode> resultStack) {
+        int carry = 0;
+        while (!stack1.empty() && !stack2.empty()){
+            ListNode node1 = stack1.pop();
+            ListNode node2 = stack2.pop();
+            ListNode resultNode = new ListNode(computeResNodeVal(computeOneDigitResult(carry, node1, node2)));
+            resultStack.push(resultNode);
+            carry = computeCarryOn(computeOneDigitResult(carry, node1, node2));
+        }
+        return carry;
+    }
+
+    private int calculateRemainingNode(Stack<ListNode> resultStack, int carry, Stack<ListNode> tmpStack) {
+        while (!tmpStack.isEmpty()) {
+            ListNode node = tmpStack.pop();
+            resultStack.push(new ListNode(computeResNodeVal(node.val + carry)));
+            carry = computeCarryOn(node.val + carry);
+        }
+        return carry;
+    }
+
+    private int computeCarryOn(int i) {
+        return (i) / 10;
+    }
+
+    private int computeResNodeVal(int i) {
+        return i % 10;
+    }
+
+    private int computeOneDigitResult(int carry, ListNode node1, ListNode node2) {
+        return carry + node1.val + node2.val;
+    }
+
+    private ListNode createListFromStack(Stack<ListNode> resultStack) {
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
+
+        while (!resultStack.isEmpty()){
+            cur.next = resultStack.pop();
+            cur = cur.next;
+        }
+
+        return head.next;
     }
 
     private Stack<ListNode> createStack(ListNode l1) {
