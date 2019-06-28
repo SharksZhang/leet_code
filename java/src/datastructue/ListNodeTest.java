@@ -14,9 +14,8 @@ public class ListNodeTest {
 
     @Test
     void should_return_all_node_val_string_when_linked_string_after_append_nodes(){
-        int [] vals = {1, 2, 3, 4, 5};
         ListNode l = new ListNode(0);
-        l.appendNodes(vals);
+        l.appendNodes(new int[]{1, 2, 3, 4, 5});
         assertEquals("0-1-2-3-4-5-", l.LinkedListString());
     }
 
