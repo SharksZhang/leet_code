@@ -20,3 +20,23 @@
 #### 55. Jump Game
 
 #### 45. Jump Game II
+
+```
+Jump as far as possible but lazily.
+
+[2, 3, 1, 1, 4]
+i    nums[i]   steps   near   far
+-      -         0       0     0
+0      2         0       0     2
+1      3         1       2     4
+2      1         1       2     4
+3      1         2       4     4
+4      4         2       4     8
+```
+
+Time complexity: O(n)
+Space complexity: O(1)
+
+在O(n)的解法中，for循环既更新最大值，有在i大于 当前位置是进行计数。每次找每一段最开的
+
+自己使用的O(n2)的算法，是因为需要用一个for循环记录每次最优的点。
