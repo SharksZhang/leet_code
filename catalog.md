@@ -40,3 +40,24 @@ Space complexity: O(1)
 在O(n)的解法中，for循环既更新最大值，有在i大于 当前位置是进行计数。每次找每一段最开的
 
 自己使用的O(n2)的算法，是因为需要用一个for循环记录每次最优的点。
+
+#### 452. Minimum Number of Arrows to Burst Balloons
+
+##### 此问题涉及到的知识点：
+
+1. java如何表示负无穷
+2. comparable 如何使用
+
+java比较器系统学习
+
+1. 多维数组排序
+
+2. ```
+   	Array.Sort(points, new Comparison<int[]>((a,b) => a[0]-b[0]));
+   ```
+
+3. java int 的最大最小值 [[-2147483648,2147483647]]
+
+##### 错误记录：
+
+未考虑负数，比较时初始值使用-1
