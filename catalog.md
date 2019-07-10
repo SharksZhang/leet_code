@@ -70,6 +70,13 @@ java比较器系统学习
 
 #### 134. Gas Station
 
-### 4.  divide and conquer
+### 4. 递归，回溯，分治
 
 #### 704. Binary Search
+
+#### 78. subsets
+
+### 位运算法
+![Screen Shot 2019-07-05 at 3.54.06 PM](Screen Shot 2019-07-05 at 3.54.06 PM.png)
+
+与运算的实质是该位存不存在。
