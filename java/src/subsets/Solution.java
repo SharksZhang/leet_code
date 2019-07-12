@@ -17,8 +17,7 @@ class Solution {
         }
 
         singleResult.push(nums[i]);
-        List<Integer> temp = new LinkedList<>(singleResult);
-        result.add(temp);
+        result.add(new LinkedList<>(singleResult));
         addRecursive(result, singleResult, nums, i+1);
 
         singleResult.pop();
