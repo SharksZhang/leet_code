@@ -157,3 +157,16 @@ java比较器系统学习
 
 
 #### 315. Count of Smaller Numbers After Self
+
+#### 169. Majority Element
+
+注意return的是left和right
+
+#### 53. Maximum Subarray
+
+动态规划看后做
+
+#### 215. Kth Largest Element in an Array
+
+1. 第k大数下标位k-1
+2. 最终返回的是下标所在位置的值
