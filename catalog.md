@@ -227,3 +227,13 @@ java比较器系统学习
 引用传递在函数内不要重新赋值
 
 找两个链表的共同最小祖先直接从第一个开始遍历，找到最后一个相同的。
+
+
+
+#### 114. Flatten Binary Tree to Linked List
+
+
+
+#### 199. Binary Tree Right Side View
+
+注意边界判断，注意判断空值
