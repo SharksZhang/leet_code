@@ -23,7 +23,7 @@ class Solution {
         LinkedList<TreeNode> preLevelNodes = new LinkedList<>();
         preLevelNodes.offer(root);
         LinkedList nextLevelNodes = new LinkedList();
-        while (preLevelNodes.size() != 0){
+        while (!preLevelNodes.isEmpty()){
             TreeNode node = preLevelNodes.poll();
             if (node.left != null){
                 nextLevelNodes.offer(node.left);
@@ -32,7 +32,7 @@ class Solution {
                 nextLevelNodes.offer(node.right);
             }
 
-            if(preLevelNodes.size() == 0){
+            if(preLevelNodes.isEmpty()){
                 preLevelNodes = nextLevelNodes;
                 result.add(node.val);
                 nextLevelNodes = new LinkedList();
