@@ -272,4 +272,22 @@ java比较器系统学习
 1. 二分查找陈成功的条件是多样的，不止是 相等。
 2. 没查找成功时缩小范围。
 
-##### 
+#### 33. Search in Rotated Sorted Array
+
+1. 找到peak，使用二分查找，找peak时注意当mid为0的情况。
+2. 分别二分查找
+3. 注意空数组，注意边界条件
+
+#### 二叉排序树
+
+##### 449. Serialize and Deserialize BST
+
+问题：如何在递归中累加字符串
+
+使用stringbuilder
+
+此题时间较慢，需要优化。
+
+##### 315. Count of Smaller Numbers After Self
+
+未做，后续继续学习

@@ -14,7 +14,6 @@ class Solution {
             } else {
                 i = mid + 1;
             }
-            nums[0] = 1;
         }
         return i;
     }
