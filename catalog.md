@@ -309,3 +309,9 @@ java比较器系统学习
 1. 使用排序去除key的不同
 2. 字符数组转字符串使用 String.valueof()
 3. 不适用排序，而使用一个数组取编码k，可以优化
+
+
+
+##### 3. Longest Substring Without Repeating Characters
+
+1. map + 划窗
