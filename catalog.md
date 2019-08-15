@@ -297,3 +297,9 @@ java比较器系统学习
 ### hash
 
 ##### 409. Longest Palindrome
+
+##### 290. Word Pattern
+
+1. 长度不相等，false
+2. char存在string不相等 false
+3. string存在 char不存在，false
