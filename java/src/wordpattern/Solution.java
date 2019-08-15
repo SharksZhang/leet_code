@@ -12,7 +12,6 @@ class Solution {
 		if(split.length != chars.length){
 			return  false;
 		}
-
 		for (int i = 0; i < chars.length; i++) {
 			String currentVal = split[i];
 			char currentChar = chars[i];

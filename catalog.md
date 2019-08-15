@@ -303,3 +303,9 @@ java比较器系统学习
 1. 长度不相等，false
 2. char存在string不相等 false
 3. string存在 char不存在，false
+
+##### 49. Group Anagrams
+
+1. 使用排序去除key的不同
+2. 字符数组转字符串使用 String.valueof()
+3. 不适用排序，而使用一个数组取编码k，可以优化
