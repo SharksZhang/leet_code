@@ -315,3 +315,8 @@ java比较器系统学习
 ##### 3. Longest Substring Without Repeating Characters
 
 1. map + 划窗
+2. 求最大或最小值可以使用math.max每次统计
+
+##### 187. Repeated DNA Sequences
+
+写代码时先思路答题考虑好以后先考虑测试用例
