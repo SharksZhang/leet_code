@@ -320,3 +320,19 @@ java比较器系统学习
 ##### 187. Repeated DNA Sequences
 
 写代码时先思路答题考虑好以后先考虑测试用例
+
+
+
+##### 76. Minimum Window Substring
+
+
+
+#### 搜索
+
+##### 200.Number of Islands
+
+1. dfs? bfs? 搜索所有连续的并标记
+2. 遍历所有节点，使用并进行搜索
+3. bfs时加入队列时就要标记，不然会导致重复加入
+
+dfs和bfs 搜索都可以用来标记项链的东西
