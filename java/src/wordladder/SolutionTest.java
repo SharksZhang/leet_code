@@ -19,6 +19,14 @@ class SolutionTest {
 	}
 
 	@Test
+	void ladderLength0() {
+		String test = "1";
+		LinkedList<String > list = new LinkedList<>(Arrays.asList("hot","cog","dog","tot","hog","hop","pot","dot"));
+		assertEquals(3, new Solution().ladderLength("hot", "dog", list));
+
+	}
+
+	@Test
 	void ladderLength2() {
 		String test = "1";
 		LinkedList<String > list = new LinkedList<>(Arrays.asList("a","b","c"));

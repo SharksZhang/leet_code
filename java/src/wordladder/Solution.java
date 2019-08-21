@@ -21,50 +21,45 @@ class Solution {
 
 	public int find(String beginWord, String endWord, Set<String> set, HashSet<String> visit) {
 
-		LinkedList<Pair> queue = new LinkedList<>();
-		Pair beginPair = new Pair(beginWord, 1);
-		queue.add(beginPair);
+		LinkedList<String> queue = new LinkedList<>();
+		queue.add(beginWord);
 		visit.add(beginWord);
-
+		int level = 0;
 		while (!queue.isEmpty()){
-			Pair pair = queue.poll();
-			if(pair.word.equals(endWord)){
-				return pair.level;
-			}
-			Set<String> nextWords = generateNextWords(pair.word, set);
-			for (String word : nextWords) {
-				if(!visit.contains(word)){
-					visit.add(word);
-					queue.add(new Pair(word, pair.level + 1));
+			level ++;
+			int curLevelCount = queue.size();
+			for (int i = 0; i < curLevelCount; i++) {
+
+				String curWord = queue.poll();
+				if(curWord.equals(endWord)){
+					return level;
+				}
+				List<String> nextWords = generateNextWords(curWord, set);
+				for (String word : nextWords) {
+					if(!visit.contains(word)){
+						visit.add(word);
+						queue.add(word);
+					}
 				}
 			}
 		}
 		return 0;
-
 	}
 
-	private Set<String> generateNextWords(String curWord, Set<String> set) {
-		Set<String> result = new HashSet<>();
-		for (String word : set) {
-			int count = 0;
-			for (int i = 0; i < word.length(); i++) {
-				if (word.charAt(i) != curWord.charAt(i)) {
-					count++;
+	private List<String> generateNextWords(String curWord, Set<String> set) {
+		LinkedList<String> result = new LinkedList<>();
+		char[] chars = curWord.toCharArray();
+		for (int i = 0; i < chars.length; i++) {
+			char temp = chars[i];
+			for (char ch = 'a'; ch<= 'z'; ch++){
+				chars[i] = ch;
+				String newWord = new String(chars);
+				if (set.contains(newWord)) {
+					result.add(newWord);
 				}
 			}
-			if (count == 1) {
-				result.add(word);
-			}
+			chars[i] = temp;
 		}
 		return result;
-	}
-	private class Pair {
-		String word;
-		int level;
-
-		public Pair(String word, int level) {
-			this.word = word;
-			this.level = level;
-		}
 	}
 }
