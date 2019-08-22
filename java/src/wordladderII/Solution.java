@@ -1,6 +1,7 @@
 package wordladderII;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,52 +20,59 @@ class Solution {
 	}
 
 	public List<List<String>> find(String beginWord, String endWord, Set<String> set) {
-		List<List<String>> result = new LinkedList<>();
 		LinkedList<Node> queue = new LinkedList<>();
+		int level =0;
+		HashMap<String, Integer> visited = new HashMap<>();
+		visited.put(beginWord, 1);
+		HashMap<String, Node> wordNodeMap=new HashMap<>();
 		queue.add(new Node(beginWord));
-		boolean complete = false;
-		while (!queue.isEmpty() && !complete) {
+		boolean found = false;
+		while (!queue.isEmpty() && !found) {
 			int curLevelCount = queue.size();
+			level++;
 			for (int i = 0; i < curLevelCount; i++) {
 				Node curNode = queue.poll();
 				List<String> nextWords = generateNextWords(curNode.word, set);
 
 				for (String nextWord : nextWords) {
-					Node nextNode = new Node(nextWord);
-					if (set.contains(nextWord) &&!hasVisited(curNode, nextNode)) {
+					Node nextNode = null ;
+
+					if (wordNodeMap.containsKey(nextWord)) {
+						nextNode = wordNodeMap.get(nextWord);
+					}else if (set.contains(nextWord)){
+						nextNode = new Node(nextWord);
+						wordNodeMap.put(nextWord, nextNode);
+					}
+					if (set.contains(nextWord) && (!visited.containsKey(nextWord) || level <visited.get(nextWord))) {
 						if (nextWord.equals(endWord)) {
-							result.add(generateResultList(curNode, nextWord));
-							complete = true;
+							found = true;
 						}else{
-							nextNode.parent = curNode;
 							queue.add(nextNode);
+							visited.put(nextWord, level + 1);
 						}
+							nextNode.parents.add(curNode);
 					}
 				}
 			}
 		}
+		List<List<String>> result = new LinkedList<>();
+		generateResultList(wordNodeMap.get(endWord), result, beginWord, new LinkedList<>());
 		return result;
 	}
 
-	private boolean hasVisited(Node parent, Node child) {
-		while (parent != null){
-			if(parent.word == child.word){
-				return true;
-			}
-			parent = parent.parent;
-		}
-		return false;
-	}
 
-	private List<String> generateResultList(Node curWord, String nextWord) {
-		List<String> result = new LinkedList<>();
-		result.add(nextWord);
-		while (curWord != null) {
-			result.add(curWord.word);
-			curWord = curWord.parent;
+	private void generateResultList(Node curNode, List<List<String>> result, String beginWord, LinkedList<String> tmpResult) {
+		if(curNode.word.equals(beginWord)){
+			LinkedList<String> list = new LinkedList<>(tmpResult);
+			Collections.reverse(list);
+			result.add(list);
+			return;
 		}
-		Collections.reverse(result);
-		return result;
+		tmpResult.add(curNode.word);
+		for (Node parent : curNode.parents) {
+			generateResultList(parent, result, beginWord, tmpResult);
+		}
+		tmpResult.pop();
 	}
 
 	private List<String> generateNextWords(String curWord, Set<String> set) {
@@ -85,8 +93,7 @@ class Solution {
 	}
 
 	private class Node {
-		Node parent;
-
+		LinkedList<Node> parents = new LinkedList<>();
 		String word;
 
 		public Node(String word) {
