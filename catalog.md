@@ -402,15 +402,20 @@ dfs和bfs 搜索都可以用来标记项链的东西
 
 
 
+#### 串问题的解法
 
+1. 双指针头尾指针，解决问题：需要对称操作
+2. 双指针 一个结果指针，一个遍历指针。解决问题：使用交换解决删除问题。
+3. 先排序，然后操作。解决重复，问题。
+4. hash 统计数目然后在减去数目判断数目是否为0. 解决问题：两个串中元素是否完全一致
 
 #### arrays
 
 1. 遇到问题需要考虑边界情况
 2. 很多数组问题都可以先进行排序再去解决
 3. 数组问题 需要移动的或者删除的， 都可以用双指针去挪动元素。一个指针用来写结果，一个指针用来遍历
-
-数组题可以通过画图解决
+4. 数组题可以通过画图找规律来解决
+5. 对于串问题需要对称的，可以分别用两个指针从串的两端移动。for(int i =0, int j = s.length-1; i< j; i++, j--){
 
 ##### 26. Remove Duplicates from Sorted Array
 
@@ -464,3 +469,74 @@ dfs和bfs 搜索都可以用来标记项链的东西
 ##### Move Zeroes
 
 使用 双指针将不是0的元素全部挪到前面，然后给后面的值赋值
+
+##### Rotate Image
+
+1. 对矩阵进行两次对称，第一次是对脚线对称，第二次是y轴对称
+2. 矩阵对称的写法：for(int i = 0, j = matrix.length -1; i<j; i++,j--){
+3. 对于矩阵变换问题，可以分为多次进行变换
+
+##### Reverse String
+
+需要对称操作的序列都可以用 两个指针从前后开始进行交换
+
+##### Reverse Integer
+
+1. 处理整数问题可能会溢出，注意不要溢出
+
+            if (result > Integer.MAX_VALUE/10 || (result == Integer.MAX_VALUE / 10 && x > 7)) return 0;
+            if (result < Integer.MIN_VALUE/10 || (result == Integer.MIN_VALUE / 10 && x < -8)) return 0;
+判断溢出的方法
+
+##### Valid Anagram
+
+1. 排序
+2. hash +加减数目。第一次hash增加数目，第二次减少。
+3. 大多数字符串问题都可以使用hash解决。注意判断字符是否相等问题可以使用加减hash后的数目，然后判断是否为0。
+
+
+
+
+
+#####  String to Integer (atoi)
+
+注意：处理int溢出问题可以使用long存储去判断，这样容易判断是否越界
+
+判断越界
+
+```
+            if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && (tmp > 7 && sign == 1 || tmp > 8 && sign == -1))) 
+```
+
+##### Implement strStr()
+
+```
+比较字符串相等
+haystack.substring(i, i+needle.length()).equals(needle)
+haystack.startsWith(needle, i);
+```
+
+##### Count and Say
+
+```
+双指针统计重复字符个数。注意最后下标的变化
+```
+
+#####  Longest Common Prefix
+
+```
+!strs[j].startsWith(tmp)
+indexOf()的区别
+```
+
+#####  Delete Node in a Linked List
+
+##### Remove Nth Node From End of ListSolution
+
+增加头指针使得头结点的删除一致
+
+##### Reverse Linked List
+
+1. 找到链表的重点
+2. 逆序后半部分
+3. 比较
