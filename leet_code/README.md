@@ -1,4 +1,6 @@
-# Catalog
+# Leetcode
+
+Leetcode is used to train algorithmic capabilities，and this readme is a summary of solving questions in leetcode.
 
 [TOC]
 
