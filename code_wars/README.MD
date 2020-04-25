@@ -5,7 +5,9 @@
 learn how to use printf in shell
 
 #### Is n divisible by x and y?
-How to judge multiple conditional expressions in shell
+How to judge multiple conditional expressions in shell?
+
+Differences between == and -eq
 
 ```bash
 
