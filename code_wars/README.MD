@@ -18,3 +18,9 @@ if [[ $(($n/$x)) -eq 0 ]] && [[ $(($n/$y)) -eq 0 ]]; then
 
 fi
 ```
+
+#### Grasshopper - Messi goals function
+learn use use to  $[] calculate
+
+### Function 1 - hello world
+learn how to define function
