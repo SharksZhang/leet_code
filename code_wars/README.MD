@@ -22,5 +22,9 @@ fi
 #### Grasshopper - Messi goals function
 learn use use to  $[] calculate
 
-### Function 1 - hello world
+#### Function 1 - hello world
 learn how to define function
+
+
+#### Beginner Series #2 Clock
+learn how to use $[]
