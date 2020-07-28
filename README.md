@@ -13,5 +13,7 @@ The main source of my practice kata are from leetcode and codewars. Leetcode is 
 |2020-07-21      |  codewars      |   shell                   |Messi goals function|
 |2020-07-21      |  codewars      |   shell                   |Function 1 - hello world|
 |2020-07-28  |  codewars      |       shell               |     Beginner Series #2 Clock     |
+|2020-07-29  |  codewars      |       shell               |     Bash Basics - While Loop
+    |
 |      |        |                      |          |
 

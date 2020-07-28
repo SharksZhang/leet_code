@@ -28,3 +28,17 @@ learn how to define function
 
 #### Beginner Series #2 Clock
 learn how to use $[]
+
+#### Bash Basics - While Loop
+learn how to use while
+
+```bash
+    i=0
+  while((i<=20))
+  do
+      echo "Count: $i"
+      i=$[$i+1]
+  done
+```
+java
+'''
